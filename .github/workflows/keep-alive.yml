@@ -1,0 +1,16 @@
+name: Supabase Keep Alive
+
+on:
+  schedule:
+    - cron: '0 0 */5 * *' # Executa a cada 5 dias
+  workflow_dispatch: # Permite testar manualmente
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase Rest API
+        run: |
+          curl -X GET "https://supabase.co" \
+          -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpocHlheWdndWlndWd1Z3h4aWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3MTQwNDYsImV4cCI6MjEwNDI5MDA0Nn0.rPeYaaP7gCwRJVUj43QqVvFwUuQ7HNQG8jrHtD_jK28" \
+          -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpocHlheWdndWlndWd1Z3h4aWJsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3MTQwNDYsImV4cCI6MjEwNDI5MDA0Nn0.rPeYaaP7gCwRJVUj43QqVvFwUuQ7HNQG8jrHtD_jK28"
